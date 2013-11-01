@@ -19,11 +19,11 @@ class castle {
 	static int m;
 	static int n;
 	public static void main(String[] args) throws IOException {
-		BufferedReader f = new BufferedReader(new FileReader("castle.in"));
-		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("castle.out")));
+//		BufferedReader f = new BufferedReader(new FileReader("castle.in"));
+//		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("castle.out")));
 
-//		BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
-//		PrintWriter out = new PrintWriter(System.out);
+		BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
 		StringTokenizer st = new StringTokenizer(f.readLine());
 		
 		m = Integer.parseInt(st.nextToken());
