@@ -16,6 +16,9 @@ class template {
 		BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(System.out);
 		StringTokenizer st = new StringTokenizer(f.readLine());
+		int n = Integer.parseInt(f.readLine());
+		int m = Integer.parseInt(st.nextToken());
+		
 
 		out.close(); // close the output file
 		System.exit(0); // don't omit this!
