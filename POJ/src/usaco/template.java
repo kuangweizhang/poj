@@ -16,10 +16,10 @@ class template {
 		BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(System.out);
 		StringTokenizer st = new StringTokenizer(f.readLine());
-		int n = Integer.parseInt(f.readLine());
+		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
 		
-
+		f.close();
 		out.close(); // close the output file
 		System.exit(0); // don't omit this!
 	}
