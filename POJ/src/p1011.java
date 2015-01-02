@@ -1,10 +1,9 @@
-import java.util.LinkedList;
-import java.util.ListIterator;
 import java.util.Scanner;
 
 public class p1011 {
 
-	public static LinkedList<Integer> Sticks;
+	public static int[] Sticks;
+	public static boolean[] Used;
 	public static int Goal;
 
 	public static void main(String[] args) {
@@ -13,24 +12,30 @@ public class p1011 {
 			int length = scanner.nextInt();
 			int max = 0;
 			int sum = 0;
-			Sticks = new LinkedList<Integer>();
+			Sticks = new int[length];
+			Used = new boolean[length];
 			for (int i = 0; i < length; i++) {
-				Sticks.addLast(scanner.nextInt());
-				if (Sticks.getLast() > max) {
-					max = Sticks.getLast();
+				Sticks[i] = scanner.nextInt();
+				Used[i] = false;
+				if (Sticks[i] > max) {
+					max = Sticks[i];
 				}
-				sum += Sticks.getLast();
+				sum += Sticks[i];
 			}
 			for (Goal = max; Goal < Integer.MAX_VALUE; Goal++) {
 				if (sum % Goal == 0) {
-					System.out.println(search(Goal));
+					if(search(Goal, length))
+					{
+						System.out.println(Goal);
+						break;
+					}
 				}
 			}
 		}
 	}
 
-	public static boolean search(int left) {
-		if (Sticks.size() == 0) {
+	public static boolean search(int left, int stickSize) {
+		if (stickSize == 0) {
 			if (left == 0) {
 				return true;
 			}
@@ -40,14 +45,18 @@ public class p1011 {
 			{
 				left = Goal;
 			}
-			ListIterator<Integer> iterator = Sticks.listIterator();
 			boolean result = false;
-			while (iterator.hasNext()) {
-				int value = iterator.next();
-				if (value <= left) {
-					iterator.remove();
-					result = result || search(left -= value);
-					iterator.add(value);
+			for(int i = 0 ; i < Sticks.length; i++)
+			{
+				if(!Used[i])
+				{
+					int value = Sticks[i];
+					if(value <= left)
+					{
+						Used[i] = true;
+						result = result || search(left -= value, stickSize - 1);
+						Used[i] = false;
+					}
 				}
 			}
 			return result;
