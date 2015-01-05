@@ -63,3 +63,8 @@ public class p1011 {
 		}
 	}
 }
+// Kitty's first step in programming
+//faja;kfja;irj
+//ldfkatrjioja'
+//;lmf,amia'elf
+//LWKRNJ;WOIRJ;ERKJM
